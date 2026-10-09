@@ -1,0 +1,16 @@
+{
+  "name": "mini-claudes",
+  "owner": {
+    "name": "Noritem"
+  },
+  "metadata": {
+    "description": "Claude Code mod: your subagents as little animated Claudes in a pane"
+  },
+  "plugins": [
+    {
+      "name": "mini-claudes",
+      "source": "./",
+      "description": "Your subagents as little animated Claudes in a pane"
+    }
+  ]
+}

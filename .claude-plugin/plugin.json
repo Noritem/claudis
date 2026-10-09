@@ -1,0 +1,32 @@
+{
+  "name": "mini-claudes",
+  "version": "0.2.0",
+  "description": "Your subagents as little animated Claudes in a pane: one figure per agent, with model, tools and tokens",
+  "author": { "name": "Noritem" },
+  "repository": "https://github.com/Noritem/mini-claudes",
+  "homepage": "https://github.com/Noritem/mini-claudes",
+  "license": "MIT",
+  "keywords": ["subagents", "agents", "pane", "ui", "mod", "animation"],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "description": "Language of the pane: en or de",
+      "default": "en",
+      "options": ["en", "de"]
+    },
+    "autoOpen": {
+      "type": "boolean",
+      "title": "Open automatically",
+      "description": "Open the pane by itself when the first subagent of a session starts",
+      "default": true
+    },
+    "snapshotTool": {
+      "type": "boolean",
+      "title": "Snapshot tool",
+      "description": "Give the model a tool that reads the pane as text (for debugging the mod; adds a tool to every request)",
+      "default": false
+    }
+  }
+}
