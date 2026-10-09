@@ -12,7 +12,7 @@ const SPAWN = {
 } as const
 
 const PANE_PROPS = {
-  title: 'Claudes',
+  title: 'Claudeis',
   isFocused: false,
   bodyColumns: 80,
   placement: 'dock',
@@ -49,7 +49,7 @@ for (const surface of ['terminal', 'desktop'] as const) {
 
     await $.agent.spawn(SPAWN)
 
-    const pane = await $.ui.mount({ plugin: 'mini-claudes', surface, component: 'Pane', requestId: 'mini-claudes', props: PANE_PROPS })
+    const pane = await $.ui.mount({ plugin: 'claudeis', surface, component: 'Pane', requestId: 'claudeis', props: PANE_PROPS })
     expect(await pane.findAll({ type: 'Text', text: 'thinking' })).toHaveLength(1)
     expect(await pane.findAll({ type: 'Text', text: 'find login()' })).toHaveLength(1)
 
@@ -72,7 +72,7 @@ test('the pane speaks German when asked to', { options: { language: 'de' } }, as
   on('turn.complete', (_$, e) => ({ text: e.answer }))
 
   await $.agent.spawn(SPAWN)
-  const pane = await $.ui.mount({ plugin: 'mini-claudes', surface: 'terminal', component: 'Pane', requestId: 'mini-claudes', props: PANE_PROPS })
+  const pane = await $.ui.mount({ plugin: 'claudeis', surface: 'terminal', component: 'Pane', requestId: 'claudeis', props: PANE_PROPS })
   expect(await pane.findAll({ type: 'Text', text: 'denkt' })).toHaveLength(1)
 
   await $.turn.complete(DONE)
@@ -86,7 +86,7 @@ test('a denied spawn does not appear in the pane', async ($, on) => {
 
   await $.agent.spawn(SPAWN)
 
-  const pane = await $.ui.mount({ plugin: 'mini-claudes', surface: 'terminal', component: 'Pane', requestId: 'mini-claudes', props: PANE_PROPS })
+  const pane = await $.ui.mount({ plugin: 'claudeis', surface: 'terminal', component: 'Pane', requestId: 'claudeis', props: PANE_PROPS })
   expect(await pane.findAll({ type: 'Text', text: 'find login()' })).toHaveLength(0)
   expect(await pane.findAll({ type: 'Text', text: 'No agent has run yet' })).toHaveLength(1)
 })
@@ -100,7 +100,7 @@ test('own agent types live in the pane asleep; built-ins and plugin agents only 
   await $.agent.offer({ agent: 'general-purpose', description: 'Does anything', source: 'built-in', provider: ENGINE })
   await $.agent.offer({ agent: 'stripe:helper', description: 'Helps', source: 'plugin', provider: ENGINE })
 
-  const pane = await $.ui.mount({ plugin: 'mini-claudes', surface: 'terminal', component: 'Pane', requestId: 'mini-claudes', props: PANE_PROPS })
+  const pane = await $.ui.mount({ plugin: 'claudeis', surface: 'terminal', component: 'Pane', requestId: 'claudeis', props: PANE_PROPS })
   expect(await pane.findAll({ type: 'Text', text: 'reviewer' })).toHaveLength(1)
   expect(await pane.findAll({ type: 'Text', text: 'haiku-scout' })).toHaveLength(1)
   expect(await pane.findAll({ type: 'Text', text: 'general-purpose' })).toHaveLength(0)
@@ -112,7 +112,7 @@ test('own agent types live in the pane asleep; built-ins and plugin agents only 
 test('with no own agents, one Claude sleeps in the pane', async ($, on) => {
   mock.clock(on, { now: 1000 })
 
-  const pane = await $.ui.mount({ plugin: 'mini-claudes', surface: 'terminal', component: 'Pane', requestId: 'mini-claudes', props: PANE_PROPS })
+  const pane = await $.ui.mount({ plugin: 'claudeis', surface: 'terminal', component: 'Pane', requestId: 'claudeis', props: PANE_PROPS })
   expect(await pane.findAll({ type: 'Text', text: 'z Z' })).toHaveLength(1)
   expect(await pane.findAll({ type: 'Text', text: 'idle' })).toHaveLength(1)
 })
@@ -131,7 +131,7 @@ test('the pane opens by itself on the first agent', async ($, on) => {
   expect(opened).toBe(1)
 })
 
-test('with autoOpen off the pane waits for /claudes', { options: { autoOpen: false } }, async ($, on) => {
+test('with autoOpen off the pane waits for /claudeis', { options: { autoOpen: false } }, async ($, on) => {
   mock.clock(on, { now: 1000 })
   let opened = 0
   on('agent.spawn', () => ({ model: 'claude-haiku-5-5', agentId: 'a1' }))
@@ -153,7 +153,7 @@ test('a finished agent that calls a tool again works again', async ($, on) => {
 
   await $.agent.spawn(SPAWN)
   await $.turn.complete(DONE)
-  const pane = await $.ui.mount({ plugin: 'mini-claudes', surface: 'terminal', component: 'Pane', requestId: 'mini-claudes', props: PANE_PROPS })
+  const pane = await $.ui.mount({ plugin: 'claudeis', surface: 'terminal', component: 'Pane', requestId: 'claudeis', props: PANE_PROPS })
   expect(await pane.findAll({ type: 'Text', text: '✓ done' })).toHaveLength(1)
 
   await $.tool.call({ tool: 'Grep', pattern: 'login', agentId: 'a1' } as never)

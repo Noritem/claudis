@@ -4,15 +4,15 @@ import type { Register } from 'claude-code'
 import type { CrewRun, CrewStatus } from '../types'
 import { NAP_MS, SLOT, SLOT_ROWS, SLOT_TEXT, STRINGS, crewRows, historyOf, snapshotOf, summaryOf } from './crew'
 
-const PANE = 'mini-claudes'
-const TITLE = 'Claudes'
+const PANE = 'claudeis'
+const TITLE = 'Claudeis'
 const TICK_MS = 400
-const SNAPSHOT_TOOL = 'mcp__mini-claudes__snapshot'
+const SNAPSHOT_TOOL = 'mcp__claudeis__snapshot'
 
-const runs = atom({ plugin: 'mini-claudes', key: 'runs' } as const, [] as CrewRun[])
-const frame = atom({ plugin: 'mini-claudes', key: 'frame' } as const, 0)
-const autoOpened = atom({ plugin: 'mini-claudes', key: 'autoOpened' } as const, false)
-const residents = atom({ plugin: 'mini-claudes', key: 'residents' } as const, [] as string[])
+const runs = atom({ plugin: 'claudeis', key: 'runs' } as const, [] as CrewRun[])
+const frame = atom({ plugin: 'claudeis', key: 'frame' } as const, 0)
+const autoOpened = atom({ plugin: 'claudeis', key: 'autoOpened' } as const, false)
+const residents = atom({ plugin: 'claudeis', key: 'residents' } as const, [] as string[])
 
 // Agent types the person defined (user or project settings); built-ins and plugin agents only visit.
 const isOwnAgent = (source: string) => source !== 'built-in' && source !== 'plugin'
@@ -38,12 +38,12 @@ export const register: Register = (on, options) => {
   // the event goes on as if it were not there.
 
   on('session.start', async ($, e, next) => {
-    await $.command.register({ name: 'claudes', description: t.command })
+    await $.command.register({ name: 'claudeis', description: t.command })
     if (hasSnapshotTool) {
       await $.tool.register({
         name: 'snapshot',
         description:
-          'Shows the current state of the Claudes pane (subagents of this session: status, model, tools, tokens) as text lines with colors.',
+          'Shows the current state of the Claudeis pane (subagents of this session: status, model, tools, tokens) as text lines with colors.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -92,7 +92,7 @@ export const register: Register = (on, options) => {
     return next(e)
   })
 
-  on('command.run', { command: 'claudes' }, async $ => {
+  on('command.run', { command: 'claudeis' }, async $ => {
     await $.ui.open({ id: PANE, title: TITLE })
 
     return { text: t.opened }
@@ -139,7 +139,7 @@ export const register: Register = (on, options) => {
     await update($, runs, list => [...list, run].slice(-100))
     wake()
 
-    // The first agent of the session opens the pane by itself; after that only /claudes does.
+    // The first agent of the session opens the pane by itself; after that only /claudeis does.
     if (isAutoOpen && !(await read($, autoOpened))) {
       await update($, autoOpened, () => true)
       void $.ui.open({ id: PANE, title: TITLE }).catch(() => undefined)

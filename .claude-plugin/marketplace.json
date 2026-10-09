@@ -1,5 +1,5 @@
 {
-  "name": "mini-claudes",
+  "name": "claudeis",
   "owner": {
     "name": "Noritem"
   },
@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "mini-claudes",
+      "name": "claudeis",
       "source": "./",
       "description": "Your subagents as little animated Claudes in a pane"
     }

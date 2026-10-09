@@ -24,7 +24,7 @@ export const STRINGS = {
     history: 'History',
     emptyHint: 'No agent has run yet. Try “have an Explore agent find where X is used”.',
     command: 'Show your subagents as little Claudes in a pane',
-    opened: 'Claudes pane opened.',
+    opened: 'Claudeis pane opened.',
   },
   de: {
     thinking: 'denkt',
@@ -41,7 +41,7 @@ export const STRINGS = {
     history: 'Verlauf',
     emptyHint: 'Noch kein Agent gelaufen. Probier z. B. „lass einen Explore-Agent suchen, wo X verwendet wird“.',
     command: 'Zeigt deine Agents als kleine Claudes in einem Pane',
-    opened: 'Claudes-Pane geöffnet.',
+    opened: 'Claudeis-Pane geöffnet.',
   },
 }
 

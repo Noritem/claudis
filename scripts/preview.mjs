@@ -117,7 +117,7 @@ text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',m
 </style>
 <rect width="${width}" height="${height}" rx="10" fill="${BACKGROUND}"/>
 <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="10" fill="none" stroke="#3a3a42"/>
-<text x="${PAD}" y="20" fill="${THEME.claude}" font-weight="700">Claudes</text>
+<text x="${PAD}" y="20" fill="${THEME.claude}" font-weight="700">Claudeis</text>
 <line x1="0" y1="${TITLE_H}" x2="${width}" y2="${TITLE_H}" stroke="#3a3a42"/>
 ${groups}
 </svg>
