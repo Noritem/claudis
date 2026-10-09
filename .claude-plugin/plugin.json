@@ -1,10 +1,10 @@
 {
-  "name": "claudeis",
+  "name": "claudis",
   "version": "0.2.0",
   "description": "Your subagents as little animated Claudes in a pane: one figure per agent, with model, tools and tokens",
   "author": { "name": "Noritem" },
-  "repository": "https://github.com/Noritem/claudeis",
-  "homepage": "https://github.com/Noritem/claudeis",
+  "repository": "https://github.com/Noritem/claudis",
+  "homepage": "https://github.com/Noritem/claudis",
   "license": "MIT",
   "keywords": ["subagents", "agents", "pane", "ui", "mod", "animation"],
   "types": "./types/index.d.ts",

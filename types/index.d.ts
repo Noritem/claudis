@@ -19,7 +19,7 @@ export type CrewRun = {
 
 declare module 'claude-code' {
   interface PluginState {
-    claudeis: {
+    claudis: {
       runs: CrewRun[]
       frame: number
       autoOpened: boolean

@@ -1,8 +1,8 @@
-# claudeis
+# claudis
 
 Your subagents as little Claudes in a pane: a mod for [Claude Code](https://claude.com/claude-code).
 
-![The Claudeis pane: five figures, three of them working, with a history below](docs/preview.svg)
+![The Claudis pane: five figures, three of them working, with a history below](docs/preview.svg)
 
 Every subagent gets a figure. It bobs while it works and shows the tool it is on. When it finishes it shows its result for two minutes, then falls asleep again. Under each figure you see the model, the tool calls, the tokens and the time. A history lists the session's runs.
 
@@ -13,16 +13,16 @@ Your own agent types (the ones in `~/.claude/agents` or a project's `.claude/age
 In a Claude Code session in the terminal, type:
 
 ```
-/plugin install claudeis --marketplace Noritem/claudeis
+/plugin install claudis --marketplace Noritem/claudis
 ```
 
 Answer `y` to add the marketplace, then press Enter for the user scope, so the mod runs in every session.
 
-The pane opens by itself when the first subagent of a session starts. `/claudeis` opens it at any time. On a narrow terminal, a pane that opens by itself waits until there is room for it; `/claudeis` always opens it.
+The pane opens by itself when the first subagent of a session starts. `/claudis` opens it at any time. On a narrow terminal, a pane that opens by itself waits until there is room for it; `/claudis` always opens it.
 
 ## Settings
 
-Change these in `/config` under claudeis:
+Change these in `/config` under claudis:
 
 | Setting | Default | What it does |
 | --- | --- | --- |
@@ -40,8 +40,8 @@ Change these in `/config` under claudeis:
 ## Developing
 
 ```
-git clone https://github.com/Noritem/claudeis
-claude --plugin-dir ./claudeis
+git clone https://github.com/Noritem/claudis
+claude --plugin-dir ./claudis
 ```
 
 - `hooks/register.tsx`: the events the mod listens to, and the pane.
